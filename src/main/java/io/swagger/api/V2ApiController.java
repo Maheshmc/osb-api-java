@@ -175,7 +175,8 @@ public class V2ApiController implements V2Api {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ServiceInstanceProvisionResponse>(objectMapper.readValue("{\n  \"metadata\" : {\n    \"attributes\" : { },\n    \"labels\" : { }\n  },\n  \"dashboard_url\" : \"dashboard_url\"\n}", ServiceInstanceProvisionResponse.class), HttpStatus.NOT_IMPLEMENTED);
+                System.out.println("Calling the instance provision");
+                return new ResponseEntity<ServiceInstanceProvisionResponse>(objectMapper.readValue("{\n  \"metadata\" : {\n    \"attributes\" : { },\n    \"labels\" : { }\n  },\n  \"dashboard_url\" : \"dashboard_url\"\n}", ServiceInstanceProvisionResponse.class), HttpStatus.ACCEPTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ServiceInstanceProvisionResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
