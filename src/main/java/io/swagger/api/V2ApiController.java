@@ -240,8 +240,8 @@ public class V2ApiController implements V2Api {
                 System.out.println("Hitting the Service provision  api ");
                 System.out.println("Payload is " + body);
                 return new ResponseEntity<ServiceInstanceProvisionResponse>(objectMapper.readValue(
-                        "{\n  \"metadata\" : {\n    \"attributes\" : { },\n    \"labels\" : { }\n  },\n  \"dashboard_url\" : \"dashboard_url\"\n}",
-                        ServiceInstanceProvisionResponse.class), HttpStatus.NOT_IMPLEMENTED);
+                        "{\n  \"metadata\" : {\n    \"attributes\" : { },\n    \"labels\" : { }\n  },\n  \"dashboard_url\" : \"https://www.ibm.com\"\n}",
+                        ServiceInstanceProvisionResponse.class), HttpStatus.OK);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ServiceInstanceProvisionResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
